@@ -1,17 +1,20 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import Aside from "./components/Atoms/Aside";
-import LoginPage from './pages/LoginPage';
-import './style/style.css'
+import LoginPage from "./pages/LoginPage";
+import MainPage from "./pages/MainPage";
+import "./style/style.css";
 
 function App() {
-
   return (
     <>
       <BrowserRouter>
-        <LoginPage></LoginPage>
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="main" element={<MainPage />} />
+        </Routes>
       </BrowserRouter>
     </>
   );
 }
 
-export default App
+export default App;
