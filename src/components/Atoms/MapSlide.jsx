@@ -9,6 +9,7 @@ import "swiper/css/autoplay"; // 자동 재생 기능 스타일
 // 필요한 모듈 개별 import
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
+import Popup from "./Popup";
 
 const MainCon = styled.div`
   box-sizing: border-box;
@@ -52,6 +53,7 @@ const MainText = styled.h1`
 
 const MapSlide = () => {
   const [float, setFloat] = useState("4F");
+  const [popupOpen, setPopup] = useState(false); // popup 변수 초기값 false
   useEffect(() => {
     console.log("123");
     let btns = document.querySelector(".swiper-pagination");
@@ -68,6 +70,8 @@ const MapSlide = () => {
   }, []);
   return (
     <MainCon>
+      {/* popupOpen 이 true 면 팝업이 나오고 false 면 사라짐 */}
+      {popupOpen ? <Popup floor={"여기에 층수 입력하면 팝업에 나옴"}></Popup> : <></>}
       <img className="pt" src="../src/assets/pt.png" alt="pt" />
       <img
         className="intersect"
