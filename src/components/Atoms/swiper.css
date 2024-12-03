@@ -1,0 +1,126 @@
+.swiper-pagination-bullet {
+  background-color: #090909;
+  width: 40px !important;
+  height: 40px !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.swiper-pagination-bullet:nth-child(1)::after {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "4F";
+  color: #ffffff;
+}
+.swiper-pagination-bullet:nth-child(2)::after {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "3F";
+  color: #ffffff;
+}
+.swiper-pagination-bullet:nth-child(3)::after {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "2F";
+  color: #ffffff;
+}
+.swiper-pagination-bullet:nth-child(4)::after {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "1F";
+  color: #ffffff;
+}
+.swiper-pagination-bullet:nth-child(5)::after {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "B1";
+  color: #ffffff;
+}
+.swiper-pagination-bullet:nth-child(6)::after {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "B2";
+  color: #ffffff;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #67a0f9;
+  width: 16px;
+  height: 16px;
+  /* transform: scale(1.2); */
+}
+.swiper-pagination {
+  width: 60px !important;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  border-left: 2px solid #090909;
+  gap: 5px;
+  position: absolute !important;
+  /* transform: translateX(730px) !important; */
+  z-index: 50;
+}
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper {
+  position: relative !important;
+}
+.mapImg {
+  width: 750px;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+.slideCon {
+  position: relative;
+}
+.slideCon::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #090909;
+  left: 5px;
+  right: 100px;
+  top: 0;
+}
+.slideCon::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #090909;
+  left: 5px;
+  right: 100px;
+  bottom: 0;
+}
+.pt {
+  position: absolute;
+  top: 10px;
+  left: 50px;
+}
+.intersect {
+  position: absolute;
+  top: 0;
+  right: -1px;
+}

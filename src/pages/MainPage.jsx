@@ -1,18 +1,19 @@
-import Aside from "../components/Layout/Aside";
-import Floor1 from "../components/Atoms/Floor1";
 import styled from "styled-components";
+import Aside from "../components/Atoms/Aside";
+import MapSlide from "../components/Atoms/mapSlide";
 
-const MainBox = styled.div`
+const MainPageContainer = styled.div`
   display: flex;
+  justify-content: space-between;
 `;
 
 const MainPage = () => {
   return (
     <>
-      <MainBox>
-        <Aside />
-        <Floor1 />
-      </MainBox>
+      <MainPageContainer>
+        <Aside></Aside>
+        <MapSlide></MapSlide>
+      </MainPageContainer>
     </>
   );
 };
