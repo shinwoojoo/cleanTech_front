@@ -14,11 +14,36 @@ const Background = styled.div`
     background-color: rgba(0, 0, 0, .4);
 `;
 
+
 const PopupBox = styled.div`
+    position: relative;
     display: flex; flex-direction: column;
     width: 366px; height: 366px;
     background-color: #fff;
     border-bottom: 10px solid #d9d9d9;
+`;
+
+const PopupDecoration = styled.div`
+    position: absolute; top: 0; left: 50%;
+    translate: -50% 0;
+    background-color: #5599FF;
+    width: 75%; height: 5px;
+    &::before {
+        position: absolute;
+        top: 0; left: -4.5px;
+        width: 5px; height: 5px;
+        background-color: #5599FF;
+        content: '';
+        clip-path: polygon(100% 1%, 0 0, 100% 100%);
+    };
+    &::after {
+        position: absolute;
+        top: 0; right: -4.5px;
+        width: 5px; height: 5px;
+        background-color: #5599FF;
+        content: '';
+        clip-path: polygon(100% 0, 0 0, 0 100%);;
+    };
 `;
 
 const Top = styled.div`
@@ -87,6 +112,7 @@ const Popup = (props) => {
     return (
         <Background>
             <PopupBox>
+                <PopupDecoration />
                 <Top>
                     {/* floor 라는 이름으로 props 주면 그 텍스트가 들어옴 만약 없으면 기본값이 들어옴 */}
                     <MainText>{floor}</MainText>
