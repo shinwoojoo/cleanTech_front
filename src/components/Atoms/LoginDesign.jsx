@@ -11,18 +11,27 @@ const Background = styled.div`
 
 const Logo = styled.div`
     position: absolute;
-    top: 20%;
-    width: 525px;
-    height: 55px;
+    top: 18%;
+    left: 10%;
+    width: 720px;
+    height: 156px;
 `;
 
 const Messages = styled.div`
-    display: flex;
-    flex-direction: column;
     position: absolute;
     gap: 16px;
-    top: 44%;
-    left: 3%;
+    top: 46%;
+    left: 21%;
+    color: white;
+    font-size: 22px;
+    text-align: right;
+    line-height: 28px;
+`;
+
+const ImgBox = styled.div`
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
 `;
 
 const LoginBackground = () => {
@@ -30,13 +39,18 @@ const LoginBackground = () => {
         <>
             <Background>
                 <Logo>
-                    <img src="../src/assets/LoginCLEANTECH.png" alt="로고" style={{width: "525px", height: "55px"}}/>
+                    <img src="../src/assets/login/LoginCLEANTECH.png" alt="로고" style={{width: "720px", height: "156px"}}/>
                 </Logo>
 
                 <Messages>
-                    <img src="../src/assets/message1.png" alt="메시지1" style={{width: '466px', height: '85px'}} />
-                    <img src="../src/assets/message2.png" alt="메시지2" style={{width: '344px', height: '85px'}}/>
+                    수동으로 관리하던 주번 업무를 디지털화하세요.<br/>
+                    시간 절약, 데이터 정리, 그리고 깨끗한 학교를 위한<br/>
+                    완벽한 솔루션이 기다리고 있습니다.
                 </Messages>
+
+                <ImgBox>
+                    <img src="../src/assets/login/Cleaner.png" alt="청소기 이미지" style={{width: "491px", height:"446px"}}/>
+                </ImgBox>
             </Background>
         </>
     )

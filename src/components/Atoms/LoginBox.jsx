@@ -1,10 +1,4 @@
 import styled from "styled-components";
-// import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
-import { useNavigate } from "react-router-dom";
-import {useGoogleLogin} from "@react-oauth/google";
-// import { useEffect } from "react";
-
-// const REDIRECT_URI = "http://localhost:3124/main";
 
 const Container = styled.div`
   display: flex;
@@ -27,6 +21,11 @@ const ButtonBox = styled.div`
   gap: 24px;
 `;
 
+const ImgBox = styled.div`
+    margin-bottom: 90px;
+    margin-top: -120px;
+`;
+
 const Login = () => {
     const handleGoogleLogin = () => {
       window.location.href = "http://localhost:3125/auth/google";
@@ -36,13 +35,13 @@ const Login = () => {
     <>
       <ButtonBox>
         <img
-          src="../src/assets/stuLogin.png"
+          src="../src/assets/login/stuLogin.png"
           alt="학생으로 로그인"
           style={{ width: "240px" }}
           onClick={handleGoogleLogin}
         />
         <img
-          src="../src/assets/teachLogin.png"
+          src="../src/assets/login/teachLogin.png"
           alt="선생님으로 로그인"
           style={{ width: "240px" }}
           onClick={handleGoogleLogin}
@@ -56,6 +55,9 @@ const LoginBox = () => {
   return (
     <>
       <Container>
+          <ImgBox>
+              <img src="../src/assets/login/LoginBoxCLEANTECH.png" alt="클린텍 로고" style={{width: '360px'}}/>
+          </ImgBox>
         <LoginText>Login</LoginText>
         <Login />
       </Container>
