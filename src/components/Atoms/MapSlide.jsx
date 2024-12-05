@@ -55,6 +55,7 @@ const MapSlide = () => {
 
     const [float, setFloat] = useState("4F");
     const [popupOpen, setPopup] = useState(true); // popup 변수 초기값 false
+
     useEffect(() => {
         console.log("123");
         let btns = document.querySelector(".swiper-pagination");
@@ -74,7 +75,7 @@ const MapSlide = () => {
         <>
             <MainCon>
                 {/* popupOpen 이 true 면 팝업이 나오고 false 면 사라짐 */}
-                {popupOpen ? <Popup floor={"여기에 제목 입력"}></Popup> : <></>}
+                {popupOpen ? <Popup floor={"청소 이미지 등록하기"}></Popup> : <></>}
                 <img className="pt" src="../src/assets/pt.png" alt="pt"/>
                 <img
                     className="intersect"

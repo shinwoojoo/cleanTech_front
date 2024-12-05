@@ -7,40 +7,41 @@ const Background = styled.div`
     background-size: cover;
     display: flex;
     justify-content: center;
+    user-select: none;
 `;
 
-const Logo = styled.div`
+const MainText = styled.div`
     position: absolute;
     top: 18%;
     left: 10%;
     width: 720px;
-    height: 156px;
+    height: 96px;
 `;
 
 const Messages = styled.div`
     position: absolute;
     gap: 16px;
-    top: 46%;
+    top: 32%;
     left: 21%;
     color: white;
     font-size: 22px;
     text-align: right;
-    line-height: 28px;
+    line-height: 36px;
 `;
 
 const ImgBox = styled.div`
     position: absolute;
-    bottom: 16px;
-    left: 16px;
+    bottom: 32px;
+    left: 32px;
 `;
 
 const LoginBackground = () => {
     return (
         <>
             <Background>
-                <Logo>
-                    <img src="../src/assets/login/LoginCLEANTECH.png" alt="로고" style={{width: "720px", height: "156px"}}/>
-                </Logo>
+                <MainText>
+                    <img src="../src/assets/login/LoginCLEANTECH.png" alt="로고" style={{width: "720px", height: "96px"}}/>
+                </MainText>
 
                 <Messages>
                     수동으로 관리하던 주번 업무를 디지털화하세요.<br/>

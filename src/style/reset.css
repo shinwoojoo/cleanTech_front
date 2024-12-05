@@ -3,5 +3,12 @@
     padding: 0;
     box-sizing: border-box;
     font-optical-sizing: auto;
-    font-family: "Noto Sans", sans-serif;
+    font-family: "maple", serif;
+}
+
+@font-face {
+    font-family: "maple";
+    /*src: url('./font/Maplestory Light.ttf');*/
+    src: url("./font/Maplestory Bold.ttf");
+    font-weight: normal;
 }
