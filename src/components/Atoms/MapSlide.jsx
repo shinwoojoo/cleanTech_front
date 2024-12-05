@@ -9,7 +9,8 @@ import "swiper/css/autoplay"; // 자동 재생 기능 스타일
 // 필요한 모듈 개별 import
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
-import Popup from "./Popup";
+// import Popup from "./Popup";
+import Popup2 from "./Popup2";
 
 const MainCon = styled.div`
   box-sizing: border-box;
@@ -50,10 +51,28 @@ const MainText = styled.h1`
   font-size: 25px;
   font-weight: bold;
 `;
+const Button = styled.button`
+  position: absolute;
+  padding: 10px;
+  right: 100px;
+  top: 110%;
+  background-color: #fff;
+  border-radius: 10px;
+  z-index: 2;
+`;
 
 const MapSlide = () => {
   const [float, setFloat] = useState("4F");
   const [popupOpen, setPopup] = useState(true); // popup 변수 초기값 false
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
+
+  const showPopup = () => {
+    setIsPopupVisible(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupVisible(false);
+  };
 
   useEffect(() => {
     console.log("123");
@@ -68,6 +87,7 @@ const MapSlide = () => {
         setFloat(afterContent.replaceAll('"', ""));
       }
     });
+    let popup = document.querySelector(".popup");
   }, []);
 
   return (
@@ -83,6 +103,10 @@ const MapSlide = () => {
         />
         <MainText>
           서울 디지텍고등학교 지도 <p>{float}</p>
+          <Button className="popup" onClick={showPopup}>
+            청소완료 사진 업로드
+          </Button>
+          {isPopupVisible && <Popup2 onClose={closePopup} />}
         </MainText>
         <SlideCon className="slideCon">
           <Swiper
