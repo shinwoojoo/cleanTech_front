@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import Aside from "../components/Atoms/Aside";
+import Aside from "../components/Layout/Aside.jsx";
 import MapSlide from "../components/Atoms/mapSlide";
+import {useEffect, useState} from "react";
 
 const MainPageContainer = styled.div`
   display: flex;
@@ -8,10 +9,40 @@ const MainPageContainer = styled.div`
 `;
 
 const MainPage = () => {
+    const [username, setUsername] = useState(null);
+    const [userprofile, setUserprofile] = useState(null);
+
+    useEffect(() => {
+        const invokeData = async () => {
+            try {
+                const response = await fetch('http://localhost:3125/user/profile', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'include',
+                });
+
+                if (!response.ok) {
+                    throw new Error('인증 실패');
+                }
+
+                const data = await response.json();
+                console.log('서버 응답:', data);
+                setUsername(data.name);  // 상태 변경
+                setUserprofile(data.profileUrl);
+            } catch (error) {
+                console.error('오류 발생:', error);
+            }
+        };
+
+        invokeData();
+    }, []);
+
   return (
     <>
       <MainPageContainer>
-        <Aside></Aside>
+        <Aside username={username} userprofile={userprofile}></Aside>
         <MapSlide></MapSlide>
       </MainPageContainer>
     </>

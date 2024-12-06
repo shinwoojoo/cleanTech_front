@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Swiper, SwiperSlide } from "swiper/react"; // Swiper 컴포넌트 가져오기
-import "./swiper.css";
+import "../../style/swiper.css";
 import "swiper/css"; // 기본 스타일 가져오기
 import "swiper/css/navigation"; // 네비게이션 스타일
 import "swiper/css/pagination"; // 페이지네이션 스타일
@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import Popup2 from "./Popup2";
 
 const MainCon = styled.div`
+  user-select: none;
   box-sizing: border-box;
   height: 100vh;
   width: calc(100vw - 300px);
@@ -26,6 +27,7 @@ const MainCon = styled.div`
   justify-content: center;
   align-items: center;
   margin-left: 300px;
+  font-family: "maple", serif;
 `;
 
 const SlideCon = styled.div`
