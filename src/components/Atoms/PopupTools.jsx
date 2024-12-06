@@ -92,69 +92,7 @@ const Bottom = styled.div`
   height: 300px;
 `;
 
-const Select = styled.select`
-  margin-top: 10px;
-  width: 300px;
-  font-size: 18px;
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-`;
-
-const Option = styled.option``;
-
-const ButtonCon = styled.div`
-  display: flex;
-  justify-content: end;
-  gap: 10px;
-  padding: 0 20px 10px 0;
-`;
-
-const Button = styled.button`
-  padding: 5px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  background-color: #fff;
-  border-radius: 10px;
-`;
-
 const PopupTools = (props) => {
-  const floor = props.floor ?? "102호 주번 확인"; // floor 로 들어 온게 있음 가져오고 없으면 "102호 주번 확인" 으로 기본값 세팅
-  useEffect(() => {
-    let selectMapImg = document.querySelector(".selectMapImg");
-    document.querySelector(".select").addEventListener("change", (e) => {
-      const selectedValue = e.target.value;
-      console.log("Selected option value:", selectedValue);
-      selectMapImg.setAttribute(
-        "src",
-        `../src/assets/popup/${selectedValue}.png`
-      );
-    });
-    const uploadBtn = document.querySelector(".uploadBtn");
-    const fileInput = document.querySelector(".fileInput");
-    const previewImage = document.querySelector(".uploadImg");
-
-    uploadBtn.addEventListener("click", () => {
-      fileInput.click(); // 숨겨진 파일 입력 요소를 클릭
-    });
-    fileInput.addEventListener("change", (event) => {
-      const file = event.target.files[0]; // 사용자가 선택한 파일
-      if (file) {
-        const reader = new FileReader();
-
-        // 파일을 읽은 후 이미지 미리보기
-        reader.onload = (e) => {
-          previewImage.src = e.target.result; // 이미지 미리보기 URL 설정
-          previewImage.style.display = "block"; // 이미지 표시
-        };
-
-        reader.readAsDataURL(file); // 파일 내용을 읽음 (base64 URL 생성)
-      }
-    });
-  }, []);
-
   return (
     <Background>
       <PopupBox>
