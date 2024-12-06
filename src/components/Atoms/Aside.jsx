@@ -34,17 +34,19 @@ const FindRole = styled.form`
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid #ccc;
-
-  & > label {
+  & > .notification:hover {
+    background-color: #cdcdcd;
+  }
+  & > .notification {
     display: flex;
     /* margin: 24px; */
     border-radius: 8px;
     width: 224px;
     justify-content: start;
     align-items: center;
-    gap: 12px;
+    gap: 50px;
     padding: 6px 10px;
-    background-color: #cdcdcd;
+    transition: 0.3s;
 
     > img {
       width: 20px;
@@ -66,40 +68,47 @@ const FindRole = styled.form`
 `;
 
 const Aside = () => {
-
-    const UserName = () => {
-        return (
-            <>
-                <NameStyle>sdh230418@sdh.hs.kr</NameStyle>
-            </>
-        )
-    }
-
-    const SearchRole = () => {
-        return (
-            <>
-                <FindRole action="#">
-                    <label htmlFor="search">
-                        <img src="../src/assets/search.png"/>
-                        <input id="search" type="text" />
-                    </label>
-                </FindRole>
-            </>
-        )
-    }
-
+  const UserName = () => {
     return (
-        <>
-            <AsideWrap>
-                <img src="../src/assets/CLEANTECH.png" alt="로고" style={{width: '224px', height: '34px', margin: '32px auto',}}/>
-                <Profile>
-                    <img src="../src/assets/PROFILE.png" alt="프로필" style={{widows: '40px', height: '40px', marginLeft: '30px'}}/>
-                    <UserName></UserName>
-                </Profile>
-                <SearchRole/>
-            </AsideWrap>
-        </>
-    )
-}
+      <>
+        <NameStyle>sdh230418@sdh.hs.kr</NameStyle>
+      </>
+    );
+  };
+
+  const SearchRole = () => {
+    return (
+      <>
+        <FindRole action="#">
+          <div className="notification" htmlFor="search">
+            <img src="../src/assets/Bell.png" />
+            <p>공지사항</p>
+          </div>
+        </FindRole>
+      </>
+    );
+  };
+
+  return (
+    <>
+      <AsideWrap>
+        <img
+          src="../src/assets/CLEANTECH.png"
+          alt="로고"
+          style={{ width: "224px", height: "34px", margin: "32px auto" }}
+        />
+        <Profile>
+          <img
+            src="../src/assets/PROFILE.png"
+            alt="프로필"
+            style={{ widows: "40px", height: "40px", marginLeft: "30px" }}
+          />
+          <UserName></UserName>
+        </Profile>
+        <SearchRole />
+      </AsideWrap>
+    </>
+  );
+};
 
 export default Aside;
