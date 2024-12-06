@@ -120,8 +120,8 @@ const Button = styled.button`
   border-radius: 10px;
 `;
 
-const Popup2 = (props) => {
-  const floor = props.floor ?? "102호 주번 확인"; // floor 로 들어 온게 있음 가져오고 없으면 "102호 주번 확인" 으로 기본값 세팅
+const Popup2 = ({ onClose }) => {
+  const floor = "102호 주번 확인"; // floor 로 들어 온게 있음 가져오고 없으면 "102호 주번 확인" 으로 기본값 세팅
   useEffect(() => {
     let selectMapImg = document.querySelector(".selectMapImg");
     document.querySelector(".select").addEventListener("change", (e) => {
@@ -165,7 +165,7 @@ const Popup2 = (props) => {
           <Util>
             {/* height 에 픽셀넣으면 각각 높이 조정 가능 */}
             {/* <Svg height={"30px"} src="../src/assets/popup/setting.svg" alt="" /> */}
-            <Svg height={"22px"} src="../src/assets/popup/cancel.svg" alt="" />
+            <Svg onClick={onClose} height={"22px"} src="../src/assets/popup/cancel.svg" alt="" />
           </Util>
         </Top>
         <Bottom>

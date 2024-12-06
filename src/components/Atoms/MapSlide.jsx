@@ -65,8 +65,9 @@ const Button = styled.button`
 
 const MapSlide = () => {
   const [float, setFloat] = useState("4F");
-  const [popupOpen, setPopup] = useState(true); // popup 변수 초기값 false
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
 
   const showPopup = () => {
     setIsPopupVisible(true);
@@ -77,7 +78,6 @@ const MapSlide = () => {
   };
 
   useEffect(() => {
-    console.log("123");
     let btns = document.querySelector(".swiper-pagination");
     btns.addEventListener("click", (e) => {
       e.preventDefault;
@@ -105,10 +105,10 @@ const MapSlide = () => {
         />
         <MainText>
           서울 디지텍고등학교 지도 <p>{float}</p>
-          <Button className="popup" onClick={showPopup}>
+          <Button className="popup" onClick={()=>setIsPopupOpen(true)}>
             청소완료 사진 업로드
           </Button>
-          {isPopupVisible && <Popup2 onClose={closePopup} />}
+          {isPopupOpen && <Popup2 onClose={()=>setIsPopupOpen(false)} />}
         </MainText>
         <SlideCon className="slideCon">
           <Swiper
