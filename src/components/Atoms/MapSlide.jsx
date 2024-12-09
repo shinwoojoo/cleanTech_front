@@ -11,6 +11,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { useEffect, useState } from "react";
 // import Popup from "./Popup";
 import Popup2 from "./Popup2";
+import NoticePopup from "./NoticePopup.jsx";
 
 const MainCon = styled.div`
   user-select: none;
@@ -63,19 +64,10 @@ const Button = styled.button`
   z-index: 2;
 `;
 
-const MapSlide = () => {
+const MapSlide = ({ username, userRole }) => {
   const [float, setFloat] = useState("4F");
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-
-  const showPopup = () => {
-    setIsPopupVisible(true);
-  };
-
-  const closePopup = () => {
-    setIsPopupVisible(false);
-  };
 
   useEffect(() => {
     let btns = document.querySelector(".swiper-pagination");
@@ -89,7 +81,7 @@ const MapSlide = () => {
         setFloat(afterContent.replaceAll('"', ""));
       }
     });
-    let popup = document.querySelector(".popup");
+    // let popup = document.querySelector(".popup");
   }, []);
 
   return (
@@ -105,10 +97,10 @@ const MapSlide = () => {
         />
         <MainText>
           서울 디지텍고등학교 지도 <p>{float}</p>
-          <Button className="popup" onClick={()=>setIsPopupOpen(true)}>
+          <Button className="popup" onClick={()=>setIsPopupOpen(true)} >
             청소완료 사진 업로드
           </Button>
-          {isPopupOpen && <Popup2 onClose={()=>setIsPopupOpen(false)} />}
+          {isPopupOpen && <Popup2 onClose={()=>setIsPopupOpen(false)} username={username} userRole={userRole} />}
         </MainText>
         <SlideCon className="slideCon">
           <Swiper

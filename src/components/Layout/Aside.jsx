@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import {useState} from "react";
+import NoticePopup from '../Atoms/NoticePopup.jsx';
 
 const AsideWrap = styled.div`
   height: 100vh;
@@ -73,6 +75,8 @@ const FindRole = styled.form`
 `;
 
 const Aside = ({username, userprofile}) => {
+    const [isPopup, setIsPopup] = useState(false);
+
   const UserName = () => {
     return (
       <>
@@ -83,17 +87,16 @@ const Aside = ({username, userprofile}) => {
 
   const SearchRole = () => {
     return (
-      <>
-        <FindRole action="#">
-          <div className="notification" htmlFor="search">
-            <img src="../src/assets/Bell.png" />
-            <p>공지사항</p>
-          </div>
-        </FindRole>
-      </>
+        <>
+          <FindRole action="#">
+            <div className="notification" htmlFor="search" onClick={()=>setIsPopup(true)}>
+              <img src="../src/assets/Bell.png" />
+              <p>공지사항</p>
+            </div>
+          </FindRole>
+        </>
     );
   };
-
 
   return (
     <>
@@ -113,6 +116,7 @@ const Aside = ({username, userprofile}) => {
         </Profile>
         <SearchRole />
       </AsideWrap>
+        {isPopup && <NoticePopup onClose={()=> setIsPopup(false)}/>}
     </>
   );
 };

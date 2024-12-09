@@ -11,6 +11,7 @@ const MainPageContainer = styled.div`
 const MainPage = () => {
     const [username, setUsername] = useState(null);
     const [userprofile, setUserprofile] = useState(null);
+    const [userRole, setUserRole] = useState(null);
 
     useEffect(() => {
         const invokeData = async () => {
@@ -31,6 +32,7 @@ const MainPage = () => {
                 console.log('서버 응답:', data);
                 setUsername(data.name);  // 상태 변경
                 setUserprofile(data.profileUrl);
+                setUserRole(data.role);
             } catch (error) {
                 console.error('오류 발생:', error);
             }
@@ -43,7 +45,7 @@ const MainPage = () => {
     <>
       <MainPageContainer>
         <Aside username={username} userprofile={userprofile}></Aside>
-        <MapSlide></MapSlide>
+        <MapSlide username={username} userRole={userRole}></MapSlide>
       </MainPageContainer>
     </>
   );
